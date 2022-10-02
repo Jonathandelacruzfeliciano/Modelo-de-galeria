@@ -1,0 +1,80 @@
+body{
+    font-family: sans-serif;
+    background-color: rgb(17, 13, 13)
+}
+
+
+.imagenes-container{
+   
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;/* el 100vh es para que tenga el 100% de la pantalla y se pueda centrar todo el elemento*/
+}
+.imagenes-container .imagen {
+position: relative;
+margin-right:-20px;
+display: inline-flex;
+flex-direction: column;
+}
+.imagenes-container .imagen img{
+width: 250px;
+height: 230px;
+transition: transform 0.33s
+ease-in-out; /*este efecto es para disminuir el tiempo enque sube hacia arriba */
+}
+
+.imagenes-container .imagen .nombre{
+    position: absolute;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    display: none;
+    min-width: 100px;
+    width: 150px;
+    top: -75px; /* el top es para la posición que se quiera llevar el odjeto*/
+    left: calc(-50% -30px);
+    padding: 10px 15px;
+}
+
+.imagenes-container .imagen .nombre .text{
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    width: 150px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.imagenes-container .imagen:hover .nombre{
+    display:inline-block; 
+    transform: translateY(-20px);
+}  
+
+.imagenes-container .imagen
+ .nombre::before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    left: 40%;
+    bottom: -20px;
+    border-top: solid 20px
+     black;
+     border-top: 10px solid #56474099;
+     border-left: 10px solid transparent;
+     border-right: 10px solid transparent;
+     border-bottom: 10px solid transparent;
+}
+
+.imagenes-container .imagen:hover img{
+transform: translatey(-20px);
+}
+@media(max-width: 690px){
+    .imagenes-container{
+        flex-direction: column;
+        height:  180vh;
+    }
+}
+
